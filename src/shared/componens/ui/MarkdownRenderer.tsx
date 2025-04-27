@@ -37,7 +37,7 @@ const MarkdownRenderer: FC<MarkdownRendererProps> = ({
 
             return !inline && match ? (
               <div className="code-block-wrapper rounded-md my-0 overflow-hidden">
-                <div className="flex justify-between items-center px-4 py-1 bg-foreground-light/20 text-xs text-foreground/60">
+                <div className="flex justify-between items-center px-4 py-1 bg-foreground-light/10 text-xs text-foreground/60">
                   <span>{match[1]}</span>
                   <CodeCopyButton textToCopy={codeString} />
                 </div>
@@ -45,8 +45,9 @@ const MarkdownRenderer: FC<MarkdownRendererProps> = ({
                 <SyntaxHighlighter
                   style={vscDarkPlus}
                   language={match[1]}
-                  PreTag={'div'}
-                  {...rest}>
+                  PreTag={'article'}
+                  {...rest}
+                >
                   {String(children).replace(/\n$/, '')}
                 </SyntaxHighlighter>
               </div>
